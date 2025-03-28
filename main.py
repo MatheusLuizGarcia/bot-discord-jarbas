@@ -31,7 +31,8 @@ async def on_ready() -> None:
 async def on_message(message: Message) -> None:
     if message.author == client.user:
         return
-    
+    if message.content[0] != '?' and message.content[0] != '!':
+        return
     username: str = str(message.author)
     user_message: str = message.content
     channel: str = str(message.channel)
